@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hanyuweb.mapper.GetJsonMapper">
+  <select id="queryAllMallClass1" resultType="cn.hanyuweb.bean.T_MALL_CLASS_1">
+  	select * from t_mall_class_1
+  </select>
+   <select id="queryMallClassByFlbh1Id" resultType="cn.hanyuweb.bean.T_MALL_CLASS_2">
+  	select * from t_mall_class_2 where flbh1= #{flbh1}
+  </select>
+  <select id="queryMallTradeMarkByFlbh1Id" resultType="cn.hanyuweb.bean.T_MALL_TRADE_MARK">
+  	select
+	tmtm.id,tmtm.ppmch
+	from t_mall_trade_mark tmtm
+	left join t_mall_tm_class tmtc 
+	on tmtm.Id=tmtc.pp_id
+	where tmtc.flbh1= #{flbh1}
+  </select>
+</mapper>
